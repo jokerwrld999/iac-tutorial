@@ -4,7 +4,7 @@ set -e
 echo "  ----- install ruby and bundler -----  "
 sudo apt-get update
 sudo apt-get install -y ruby-full build-essential
-gem install --no-rdoc --no-ri bundler -v 2.3.26
+sudo gem install --no-rdoc --no-ri bundler -v 2.3.26
 
 echo "  ----- install mongodb -----  "
 sudo apt-get install -y mongodb
