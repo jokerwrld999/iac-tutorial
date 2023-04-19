@@ -2,6 +2,7 @@
 set -e
 
 echo "  ----- clone application repository -----  "
+cd $HOME
 git clone https://github.com/Artemmkin/raddit.git
 
 echo "  ----- install dependent gems -----  "
