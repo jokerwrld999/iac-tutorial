@@ -14,5 +14,5 @@ systemctl start mongod
 systemctl enable mongod
 
 echo "  ----- copy unit file for application -----  "
-wget 
+wget https://raw.githubusercontent.com/jokerwrld999/iac-tutorial/main/raddit-service/raddit.service
 mv raddit.service /etc/systemd/system/raddit.service
