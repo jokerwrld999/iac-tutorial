@@ -4,10 +4,8 @@ set -e
 echo "  ----- install ruby and bundler -----  "
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install -y build-essential
-wget https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.2.tar.gz
-tar xf ruby-3.2.2.tar.gz
-cd ./ruby-3.2.2 && ./configure && make && sudo make install
+sudo apt install -y git curl autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
 sudo gem install --no-rdoc --no-ri bundler
 
 echo "  ----- install mongodb -----  "
