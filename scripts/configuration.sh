@@ -10,8 +10,8 @@ echo "  ----- install mongodb -----  "
 sudo apt-get install -y mongodb
 
 echo "  ----- start mongodb -----  "
-sudo systemctl start mongod
-sudo systemctl enable mongod
+sudo systemctl start mongodb
+sudo systemctl enable mongodb
 
 echo "  ----- copy unit file for application -----  "
 wget https://raw.githubusercontent.com/jokerwrld999/iac-tutorial/main/raddit-service/raddit.service
