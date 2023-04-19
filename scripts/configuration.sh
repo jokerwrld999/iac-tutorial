@@ -15,8 +15,8 @@ echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gp
 sudo apt update && sudo apt-get install -y mongodb-org
 
 echo "  ----- start mongodb -----  "
-sudo systemctl start mongodb
-sudo systemctl enable mongodb
+sudo systemctl start mongod
+sudo systemctl enable mongod
 
 echo "  ----- copy unit file for application -----  "
 wget https://raw.githubusercontent.com/jokerwrld999/iac-tutorial/main/raddit-service/raddit.service
