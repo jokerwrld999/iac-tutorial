@@ -2,6 +2,7 @@
 set -e
 
 echo "  ----- install ruby and bundler -----  "
+export DEBIAN_FRONTEND='noninteractive'
 sudo apt-get update
 sudo apt-get install -y ruby-dev build-essential gnupg
 sudo gem install bundler 
