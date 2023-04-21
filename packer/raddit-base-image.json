@@ -16,7 +16,6 @@
       {
         "type": "shell",
         "inline": ["echo foo"],
-        "_script": "../scripts/configuration.sh",
         "execute_command": "sudo {{.Path}}"
       }
     ]
