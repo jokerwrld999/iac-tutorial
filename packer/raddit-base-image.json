@@ -15,6 +15,7 @@
     "provisioners": [
       {
         "type": "shell",
+        "inline": ["export DEBIAN_FRONTEND='noninteractive'"],
         "script": "../scripts/configuration.sh",
         "execute_command": "sudo {{.Path}}"
       }
