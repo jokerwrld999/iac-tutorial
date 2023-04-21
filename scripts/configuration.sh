@@ -2,7 +2,7 @@
 set -e
 
 echo "  ----- install ruby and bundler -----  "
-sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get update
 sudo apt-get install -y ruby-dev build-essential gnupg
 sudo gem install bundler 
 
