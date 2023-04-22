@@ -7,7 +7,7 @@ sudo add-apt-repository -y restricted
 sudo add-apt-repository -y multiverse
 sudo apt update
 sudo apt install -y ruby-full build-essential wget curl gnupg2 software-properties-common apt-transport-https ca-certificates lsb-release
-gem install -N bundler
+sudo gem install -N bundler
 
 echo "  ----- install mongodb -----  "
 wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | sudo tee /usr/share/keyrings/mongodb.gpg > /dev/null
