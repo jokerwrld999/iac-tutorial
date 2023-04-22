@@ -21,4 +21,4 @@ sudo wget -O /etc/systemd/system/raddit.service https://raw.githubusercontent.co
 
 echo "  ----- deploy application -----  "
 pwd
-#$HOME/iac-tutorial/scripts/deploy.shI
+$HOME/iac-tutorial/scripts/deploy.sh
