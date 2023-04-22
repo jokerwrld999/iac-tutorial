@@ -6,12 +6,15 @@ sudo add-apt-repository -y universe
 sudo add-apt-repository -y restricted
 sudo add-apt-repository -y multiverse
 sudo apt update
-sudo apt install -y ruby-full build-essential wget curl gnupg2 software-properties-common apt-transport-https ca-certificates lsb-release
+sudo apt install -y ruby-full build-essential gnupg
 sudo gem install -N bundler
 
 echo "  ----- install mongodb -----  "
-wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | sudo tee /usr/share/keyrings/mongodb.gpg > /dev/null
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+curl -fsSL https://pgp.mongodb.com/server-6.0.asc | \
+   sudo gpg --batch --yes -o /usr/share/keyrings/mongodb-server-6.0.gpg \
+   --dearmor
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+
 sudo apt update
 sudo apt install -y mongodb-org
 
