@@ -3,22 +3,20 @@ set -e
 
 echo "  ----- install ruby and bundler -----  "
 sudo apt update
-sudo apt-get install -y ruby-full build-essential gnupg
+sudo apt install -y ruby-full build-essential wget curl gnupg2 software-properties-common apt-transport-https ca-certificates lsb-release
 sudo gem install bundler 
 
 echo "  ----- install mongodb -----  "
-wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | sudo tee /usr/share/keyrings/mongodb.gpg > /dev/null
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+curl -fsSL https://www.mongodb.org/static/pgp/server-6.0.asc | sudo gpg --batch --yes --dearmor -o /etc/apt/trusted.gpg.d/mongodb-6.gpg
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
 sudo apt update
 sudo apt install mongodb-org
 
 echo "  ----- start mongodb -----  "
-sudo systemctl start mongod
-sudo systemctl enable mongod
+sudo systemctl enable --now mongod
 
 echo "  ----- copy unit file for application -----  "
-wget https://raw.githubusercontent.com/jokerwrld999/iac-tutorial/main/raddit-service/raddit.service
-sudo mv raddit.service /etc/systemd/system/raddit.service
+sudo -O /etc/systemd/system/raddit.service wget https://raw.githubusercontent.com/jokerwrld999/iac-tutorial/main/raddit-service/raddit.service
 
 echo "  ----- deploy application -----  "
 #$HOME/iac-tutorial/scripts/deploy.shI
