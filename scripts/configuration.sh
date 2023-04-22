@@ -3,7 +3,7 @@ set -e
 
 echo "  ----- install ruby and bundler -----  "
 sudo apt update
-sudo apt install -y ruby rubu-dev build-essential wget curl gnupg2 software-properties-common apt-transport-https ca-certificates lsb-release
+sudo apt install -y ruby ruby-dev build-essential wget curl gnupg2 software-properties-common apt-transport-https ca-certificates lsb-release
 sudo gem install bundler 
 
 echo "  ----- install mongodb -----  "
