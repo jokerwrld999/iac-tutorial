@@ -3,8 +3,6 @@ set -e
 
 echo "  ----- install ruby and bundler -----  "
 sudo add-apt-repository -y universe 
-sudo add-apt-repository -y restricted
-sudo add-apt-repository -y multiverse
 sudo apt update
 sudo apt install -y ruby-full build-essential gnupg
 sudo gem install -N bundler
