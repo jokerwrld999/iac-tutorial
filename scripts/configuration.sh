@@ -5,7 +5,7 @@ echo "  ----- install ruby and bundler -----  "
 sudo add-apt-repository -y universe multiverse restricted
 sudo apt update
 sudo apt install -y ruby-full build-essential wget curl gnupg2 software-properties-common apt-transport-https ca-certificates lsb-release
-sudo gem install bundler 
+gem install --no-rdoc --no-ri bundler
 
 echo "  ----- install mongodb -----  "
 wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | sudo tee /usr/share/keyrings/mongodb.gpg > /dev/null
