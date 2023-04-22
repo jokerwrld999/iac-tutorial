@@ -19,4 +19,5 @@ echo "  ----- copy unit file for application -----  "
 sudo -O /etc/systemd/system/raddit.service wget https://raw.githubusercontent.com/jokerwrld999/iac-tutorial/main/raddit-service/raddit.service
 
 echo "  ----- deploy application -----  "
+pwd
 #$HOME/iac-tutorial/scripts/deploy.shI
