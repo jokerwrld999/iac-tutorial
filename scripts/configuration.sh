@@ -12,9 +12,10 @@ curl -fsSL https://pgp.mongodb.com/server-6.0.asc | \
    sudo gpg --batch --yes -o /usr/share/keyrings/mongodb-server-6.0.gpg \
    --dearmor
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-
-sudo apt update
-sudo apt install -y mongodb-org
+echo "deb http://security.ubuntu.com/ubuntu focal-security main" | sudo tee /etc/apt/sources.list.d/focal-security.list
+sudo apt-get update
+sudo apt-get install -y libssl1.1 mongodb-org
+sudo rm /etc/apt/sources.list.d/focal-security.list
 
 echo "  ----- start mongodb -----  "
 sudo systemctl enable --now mongod

@@ -5,10 +5,10 @@
         "project_id": "raddit-jokerwrld",
         "zone": "europe-west1-b",
         "machine_type": "g1-small",
-        "source_image_family": "ubuntu-2004-lts",
+        "source_image_family": "ubuntu-2204-lts",
         "image_name": "raddit-base-{{isotime `20060102-150405`}}",
         "image_family": "raddit-base",
-        "image_description": "Ubuntu 20.04 with Ruby, Bundler and MongoDB preinstalled",
+        "image_description": "Ubuntu 22.04 with Ruby, Bundler and MongoDB preinstalled",
         "ssh_username": "raddit"
       }
     ],
