@@ -1,0 +1,26 @@
+---
+
+- name: Configure | Install bundler
+  community.general.gem:
+    name: bundler
+    state: latest
+
+- name: Configure | Install mongodb
+  ansible.builtin.package:
+    name:
+      - mongodb
+    state: present
+    update_cache: yes
+
+- name: Configure | Start mongod service
+  become: true
+  ansible.builtin.service:
+    name: mongodb
+    state: started
+    enabled: true
+ 
+- name: Configure | Copy unit file for application
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/jokerwrld999/iac-tutorial/main/raddit-service/raddit.service
+    dest: /etc/systemd/system/raddit.service
+    mode: '0755'

@@ -3,10 +3,8 @@
 - name: Software | Utilities | Install package
   ansible.builtin.package:
     name:
+      - build-essential 
+      - gnupg
       - gnome-keyring
+      - ruby-full 
       - python3-pip
-
-- name: Software | Utilities | Install pip package
-  ansible.builtin.pip:
-    name:
-      - docker

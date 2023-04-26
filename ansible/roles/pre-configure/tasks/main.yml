@@ -5,7 +5,7 @@
     - ansible.builtin.include_tasks: software/repositories.yml
     - ansible.builtin.include_tasks: software/tweaks.yml
     - ansible.builtin.include_tasks: software/packages_utilities.yml
-    - ansible.builtin.include_tasks: software/packages_docker.yml
+#    - ansible.builtin.include_tasks: software/packages_docker.yml
 
   rescue:
     - ansible.builtin.set_fact: task_failed=true

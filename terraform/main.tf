@@ -6,7 +6,7 @@ resource "google_compute_instance" "raddit" {
     # boot disck specifications
     boot_disk {
       initialize_params {
-        image = "raddit-base"
+        image = "ubuntu-2004-lts"
       }
     }
 

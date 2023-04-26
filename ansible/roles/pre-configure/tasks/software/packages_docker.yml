@@ -21,3 +21,8 @@
   ansible.builtin.package:
     name:
       - docker-compose
+
+- name: Software | Utilities | Install pip package
+  ansible.builtin.pip:
+    name:
+      - docker
