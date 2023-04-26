@@ -6,6 +6,7 @@
 
 # Ansible
 *.retry
+.vault_pass
 
 # Vagrant
 .vagrant/

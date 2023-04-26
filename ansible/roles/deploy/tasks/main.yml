@@ -1,0 +1,21 @@
+---
+
+- name: Deploy | Clone app repo
+  ansible.builtin.git: 
+    repo: https://github.com/Artemmkin/raddit.git
+    dest: ~/raddit
+  register: clone
+
+- name: Deploy | Install dependent gems
+  become: true
+  bundler:
+    state: present
+    chdir: /home/raddit/raddit
+  when: clone.changed
+
+- name: Deploy | Start raddit service
+  become: true
+  ansible.builtin.service:
+    name: raddit
+    state: started
+    enabled: true
