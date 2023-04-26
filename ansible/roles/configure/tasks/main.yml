@@ -1,9 +1,9 @@
 ---
 
 - name: Configure | Install bundler
-  community.general.gem:
-    name: bundler
-    state: latest
+  shell: sudo gem install bundler
+  args:
+    creates: /usr/local/bin/bundler
 
 - name: Configure | Install mongodb
   ansible.builtin.package:
