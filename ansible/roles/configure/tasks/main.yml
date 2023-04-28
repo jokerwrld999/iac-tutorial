@@ -6,6 +6,7 @@
     creates: /usr/local/bin/bundler
 
 - name: Configure | Install mongodb
+  become: true
   ansible.builtin.package:
     name:
       - mongodb
@@ -20,7 +21,10 @@
     enabled: true
 
 - name: Configure | Copy unit file for application
-  ansible.builtin.get_url:
-    url: https://raw.githubusercontent.com/jokerwrld999/iac-tutorial/main/raddit-service/raddit.service
+  become: true
+  ansible.builtin.template:
+    src: raddit.service.j2
     dest: /etc/systemd/system/raddit.service
-    mode: '0755'
+    owner: root
+    group: root
+    mode: 0755

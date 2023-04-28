@@ -1,0 +1,16 @@
+[Unit]
+Description=Raddit application
+After=network.target
+
+[Service]
+Type=simple
+
+Restart=always
+RestartSec=5
+
+User={{home_user}}
+WorkingDirectory={{ home_dir }}/raddit
+ExecStart=/bin/bash -lc 'puma'
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,5 @@
+---
+
+home_dir: "{{ ansible_env.HOME }}"
+home_user: "{{ ansible_env.USER }}"
+temp_dir: "{{ home_dir }}/temp"

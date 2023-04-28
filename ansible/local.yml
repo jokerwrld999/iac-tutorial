@@ -32,15 +32,12 @@
   become: true
   roles:
     - pre-configure
-    - configure
 
 - name: Deploy server
   hosts: raddit-app
-  vars:
-    home_dir: "{{ ansible_env.HOME }}"
   roles:
-    - role: deploy
-      tags: deploy
+    - configure
+    - deploy
 
 - name: Post-run | Cleanup hosts...
   hosts: all
