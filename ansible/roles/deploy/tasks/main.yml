@@ -1,15 +1,15 @@
 ---
 
 - name: Deploy | Clone app repo
-  ansible.builtin.git: 
+  ansible.builtin.git:
     repo: https://github.com/Artemmkin/raddit.git
-    dest: ~/raddit
+    dest: "{{ home_dir }}/raddit"
 
 - name: Deploy | Install dependent gems
   become: true
   bundler:
     state: present
-    chdir: /home/raddit/raddit
+    chdir: "{{ home_dir }}/raddit"
 
 - name: Deploy | Start raddit service
   become: true

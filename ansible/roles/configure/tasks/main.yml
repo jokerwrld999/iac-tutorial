@@ -18,7 +18,7 @@
     name: mongodb
     state: started
     enabled: true
- 
+
 - name: Configure | Copy unit file for application
   ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/jokerwrld999/iac-tutorial/main/raddit-service/raddit.service
