@@ -7,8 +7,8 @@ Vagrant.configure("2") do |config|
         app.vm.box = "bento/ubuntu-20.04"
         app.vm.hostname = "raddit-app"
         app.vm.network "forwarded_port", guest: 9292, host: 9292
-        app.vm.provision "../ansible" do |ansible|
-            ansible.playbook = "ansible/local.yml"
+        app.vm.provision "ansible" do |ansible|
+            ansible.playbook = "../ansible/local.yml"
         end
     end
 end
