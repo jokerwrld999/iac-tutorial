@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  mongo:
+    container_name: mongo-database
+    image: mongo:3.2
+    restart: on-failure
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - raddit-network
+  raddit:
+    container_name: raddit-app
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: on-failure
+    environment:
+      - DATABASE_HOST=mongo-database
+    ports:
+      - 9292:9292
+    networks:
+      - raddit-network
+    depends_on:
+      - mongo
+
+networks:
+  raddit-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
